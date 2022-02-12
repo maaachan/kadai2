@@ -3,7 +3,6 @@
 
 <% if @book.errors.any? %>
  <%= @book.errors.count %>errors prohibited this book from being saved:
-
  <ul>
  <%= @book.errors.full_messages.each do |message| %>
  <li><%= message %></li>
@@ -14,13 +13,14 @@
 <%= form_with model: @book, url: update_book_path(@book.id), method: :patch, local: true do |f| %>
 
 
-  <h4>タイトル</h4>
+  <h4>Title</h4>
   <%= f.text_field :title %>
   
-  <h4>本文</h4>
+  <h4>Body</h4>
   <%= f.text_area :body %>
-  
-  <%= f.submit 'update book' %>
+  <p>
+  <%= f.submit 'Update Book' %>
+  </p>
   <P>
   <%= link_to "show", book_path(@book.id) %>
   <%= link_to "back", books_path %>
